@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            font-weight: 400;
+        }
+        #heading {
+            font-size: 40px;
+            color: #5B6069; 
+            font-weight: 600;
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        form input:not([type="checkbox"]) {
+            border-radius: 6px;
+            border: 1px solid #666;
+            font-size: 18px;
+            padding: 6px 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            min-width: 100%;
+            line-height: 2;
+        }
+        button {
+            background-color: #6494F3;
+            color:#fff;
+            border-radius: 6px;
+            border: none;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .float-left {
+            float: left;
+        }
+        .float-right {
+            float: right;
+        }
+        .clearfix {
+            overflow: hidden;
+        }
+        a {
+            color: #6494F3;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mt-5 {
+            margin-top: 5rem;
+        }
+
+        @media (max-width:768px) {
+
+            #heading {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+     <h2 id="heading">
+         Login
+     </h2>
+     <form action="">
+         <div>
+            <input type="text" placeholder="username">
+         </div>
+         <div>
+            <input type="password" placeholder="password">
+         </div>
+         <div class="clearfix">
+             <div class="float-left">
+                <input id="rememberMe" type="checkbox">
+                <label for="rememberMe">remember me</label>
+             </div>
+             <div class="float-right">
+                 <button type="submit">submit</button>
+             </div>
+         </div>
+     </form>
+     <p class="text-center mt-5">
+         <a href="#">Forgot password?</a>
+     </p>
+</body>
+</html>
