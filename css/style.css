@@ -65,3 +65,7 @@ footer {
 .mb-1 {
     margin-bottom: 1rem;
 }
+.px-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
