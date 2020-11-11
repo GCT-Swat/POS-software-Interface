@@ -69,3 +69,11 @@ footer {
     padding-left: 2rem;
     padding-right: 2rem;
 }
+a {
+    color: #6494F3;
+    text-decoration: none;
+}
+a:hover {
+    color: #0859fa;
+    text-decoration: underline;
+}
