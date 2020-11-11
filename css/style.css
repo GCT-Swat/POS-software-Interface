@@ -21,15 +21,17 @@ body {
 }
 .my-input {
     border-radius: 6px;
-    border: 1px solid #666;
+    border: 1px solid #aaa;
     padding: 5px 10px;
     line-height: 2;
     text-align: center;
     width: 100%;
 }
-#login {
+#centerForm {
     max-width: 400px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 .float-left {
     float: left;
@@ -76,4 +78,19 @@ a {
 a:hover {
     color: #0859fa;
     text-decoration: underline;
+}
+.bg-white {
+    background-color: #fff;
+}
+.border {
+    border: 1px solid #aaa;
+}
+.rounded {
+    border-radius: 12px;
+}
+.p-1 {
+    padding: 1rem;
+}
+.p-2 {
+    padding: 2rem;
 }
