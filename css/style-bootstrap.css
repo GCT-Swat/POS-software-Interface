@@ -1,0 +1,15 @@
+html,body {
+    height: 100%;
+}
+.container {
+    max-width: 1170px;
+}
+#loginForm {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -103px;
+}
+main {
+    min-height: calc(100% - 168px)
+}
