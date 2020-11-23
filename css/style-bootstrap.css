@@ -11,5 +11,27 @@ html,body {
     margin-top: -103px;
 }
 main {
-    min-height: calc(100% - 168px)
+    height: calc(100% - 184px);
+    min-height: 500px;
+    margin-top: -64px;
+    margin-bottom: 64px;
+}
+
+@keyframes newsChannel {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.news-reel {
+    animation: newsChannel linear 3s infinite;
+}
+.btn-light:hover {
+    color: #1b62f0;
 }
