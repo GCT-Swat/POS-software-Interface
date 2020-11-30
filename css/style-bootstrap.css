@@ -16,7 +16,25 @@ main {
     margin-top: -64px;
     margin-bottom: 64px;
 }
+.btn-primary {
+    background-color: #6494F3;
+}
 
+#search::before {
+    content: "hello world!";
+    font-family: "Font Awesome 5 Free";
+}
+#search:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+.paper {
+    background-image: url('../images/paper.jpg');
+    min-height: 490px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.20);
+
+
+}
 @keyframes newsChannel {
     0% {
         transform: rotateY(0deg);

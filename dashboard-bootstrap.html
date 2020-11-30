@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2ec94647f2.js" crossorigin="anonymous"></script>
 
-    <title>Login Bootstrap version</title>
+    <title>Dashboard Bootstrap version</title>
   </head>
   <body>
     <header>
@@ -80,12 +80,101 @@
             <div class="modal-content">
                 <div class="modal-header border-0">
                 <h5 class="modal-title" id="newOrderLabel">New Order</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div>
+                    <button class="btn">
+                        <i class="fas fa-window-minimize"></i>
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
                 </div>
                 <div class="modal-body">
-                ...
+                <section class="mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-8 col-md-6 mb-3 mb-md-0 pr-1">
+                            <form action="">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <label class="input-group-text bg-white border-right-0" for="search"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input id="search" type="text" class="form-control border-left-0" placeholder="Search product">
+                                  </div>
+                            </form>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 text-center d-flex pl-1">
+                            <button class="btn px-4 border mr-2">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                            <button class="btn btn-primary flex-grow-1">Save</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="paper rounded-lg px-4 py-3 mb-2">
+                    <h3 class="font-weight-normal">Invoice</h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-normal">#</th>
+                                <th width="50%" class="font-weight-normal">Item Name</th>
+                                <th class="font-weight-normal text-center">Unit Cost</th>
+                                <th class="font-weight-normal text-center">Quantity</th>
+                                <th class="font-weight-normal text-center">Discount</th>
+                                <th class="font-weight-normal text-center">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="">1</td>
+                                <td width="50%" class="">Item 1 Name</td>
+                                <td class="text-center">500</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center">0.00</td>
+                                <td class="text-center">500.00</td>
+                            </tr>
+                            <tr>
+                                <td class="">2</td>
+                                <td width="50%" class="">Item 2 Name</td>
+                                <td class="text-center">500</td>
+                                <td class="text-center">2</td>
+                                <td class="text-center">0.00</td>
+                                <td class="text-center">500.00</td>
+                            </tr>
+                            <tr>
+                                <td class="">3</td>
+                                <td width="50%" class="">Item 3 Name</td>
+                                <td class="text-center">500</td>
+                                <td class="text-center">3</td>
+                                <td class="text-center">0.00</td>
+                                <td class="text-center">500.00</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="text-right">Subtotal</td>
+                                <td class="text-center">0.00</td>
+                                <td class="text-center">1500.00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"></td>
+                                <td class="text-center font-weight-bold">Total PKR</td>
+                                <td class="text-center font-weight-bold">1500.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" colspan="4"></td>
+                                <td class="text-center font-weight-bold">Amount Paid</td>
+                                <td class="text-center font-weight-bold">0.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0" colspan="4"></td>
+                                <td class="text-center font-weight-bold">Balance Due</td>
+                                <td class="text-center font-weight-bold">1500.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
                 </div>
                 
             </div>

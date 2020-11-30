@@ -154,6 +154,9 @@ a:hover {
     display: flex;
     align-items: center;
 }
+btn-primary {
+    background-color: #6494F3;
+}
 
 @media (max-width: 792px) {
     #main {
