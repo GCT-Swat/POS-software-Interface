@@ -81,8 +81,11 @@
                 <div class="modal-header border-0">
                 <h5 class="modal-title" id="newOrderLabel">New Order</h5>
                 <div>
-                    <button class="btn">
+                    <button class="btn minimize">
                         <i class="fas fa-window-minimize"></i>
+                    </button>
+                    <button class="btn maximize d-none">
+                        <i class="far fa-window-maximize"></i>
                     </button>
                     <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times"></i>
@@ -91,29 +94,26 @@
                 </div>
                 <div class="modal-body">
                 <section class="mb-3">
-                    <div class="row no-gutters">
-                        <div class="col-xl-9 col-lg-8 col-md-6 mb-3 mb-md-0 pr-1">
-                            <form action="">
+                    <form action="" id="addProduct">
+                        <div class="row no-gutters">
+                            <div class="col-xl-9 col-lg-8 col-md-6 mb-3 mb-md-0 pr-1">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                      <label class="input-group-text bg-white border-right-0" for="search"><i class="fas fa-search"></i></span>
+                                        <label class="input-group-text bg-white border-right-0" for="search"><i class="fas fa-search"></i></label>
                                     </div>
-                                    <input id="search" type="text" class="form-control border-left-0" placeholder="Search product">
-                                  </div>
-                            </form>
+                                    <input id="search" data-price="200" type="text" class="form-control border-left-0" placeholder="Search product">
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6 text-center d-flex pl-1">
+                                <button type="submit" class="btn px-4 border mr-2"><i class="fas fa-plus"></i> Add</button>
+                                <button class="btn btn-primary flex-grow-1">Save</button>
+                            </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 text-center d-flex pl-1">
-                            <button class="btn px-4 border mr-2">
-                                <i class="fas fa-plus"></i>
-                                Add
-                            </button>
-                            <button class="btn btn-primary flex-grow-1">Save</button>
-                        </div>
-                    </div>
+                    </form>
                 </section>
                 <section class="paper rounded-lg px-4 py-3 mb-2">
                     <h3 class="font-weight-normal">Invoice</h3>
-                    <table class="table table-sm">
+                    <table class="table table-sm" id="invoiceTable">
                         <thead>
                             <tr>
                                 <th class="font-weight-normal">#</th>
@@ -182,5 +182,80 @@
         </div>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-4-autocomplete/dist/bootstrap-4-autocomplete.min.js" crossorigin="anonymous"></script>
+    <script>
+    // Auto Complete
+    var src = {
+        "Bootstrap 4 Autocomplete example": 1,
+        "Best example in the world": 2,
+        "Bootstrap 4 Autocomplete is very nice": 3,
+        "It contains neatly arranged example items": 4,
+        "With many autocomplete values": 5,
+        "And it uses default Bootstrap 4 components": 6,
+        "You can use this example to test": 7,
+    }
+
+    function onSelectItem(item, element) {
+        $('#output').html(
+            'Element <b>' + $(element).attr('id') + '</b> was selected<br/>' +
+            '<b>Value:</b> ' + item.value + ' - <b>Label:</b> ' + item.label
+        );
+    }
+
+    $('#search').autocomplete({
+        source: src,
+        onSelectItem: onSelectItem,
+        highlightClass: 'text-danger',
+        treshold : 2
+    });
+    // end auto complete
+
+    // Minimize 
+
+    $(".minimize").on("click",function(){
+        $(".modal-body").addClass("d-none");
+        $(".modal-content").css("width","231px");
+        $(".modal-dialog").css({"position":"absolute","bottom":"0"});
+        $(".maximize").removeClass("d-none");
+        $(".minimize").addClass("d-none");
+    });
+
+    $(".maximize").on("click",function(){
+        $(".modal-body").removeClass("d-none");
+        $(".modal-content").removeAttr("style");
+        $(".modal-dialog").removeAttr("style");
+        $(".maximize").addClass("d-none");
+        $(".minimize").removeClass("d-none");
+    });
+
+    // minimize end
+
+    // add product to invoice
+    $("#addProduct").on("submit",function(formSubmitEvent){
+        formSubmitEvent.preventDefault();
+
+        if ($("#search").val().length > 2) {
+            $("#invoiceTable").find("tbody").append(`
+                <tr>
+                    <td class="">1</td>
+                    <td width="50%" class="">`+$("#search").val()+`</td>
+                    <td class="text-center">`+$("#search").attr("data-price")+`</td>
+                    <td class="text-center" contenteditable="true">1</td>
+                    <td class="text-center">0.00</td>
+                    <td class="text-center">500.00</td>
+                </tr>
+            `);
+        } else {
+            alert("Please add a product first");
+        }
+        
+    });
+
+    
+
+
+    </script>
+
+</body>
+
 </html>
