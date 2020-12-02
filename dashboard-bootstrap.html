@@ -122,33 +122,11 @@
                                 <th class="font-weight-normal text-center">Quantity</th>
                                 <th class="font-weight-normal text-center">Discount</th>
                                 <th class="font-weight-normal text-center">Amount</th>
+                                <th class="font-weight-normal text-center">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="">1</td>
-                                <td width="50%" class="">Item 1 Name</td>
-                                <td class="text-center">500</td>
-                                <td class="text-center">1</td>
-                                <td class="text-center">0.00</td>
-                                <td class="text-center">500.00</td>
-                            </tr>
-                            <tr>
-                                <td class="">2</td>
-                                <td width="50%" class="">Item 2 Name</td>
-                                <td class="text-center">500</td>
-                                <td class="text-center">2</td>
-                                <td class="text-center">0.00</td>
-                                <td class="text-center">500.00</td>
-                            </tr>
-                            <tr>
-                                <td class="">3</td>
-                                <td width="50%" class="">Item 3 Name</td>
-                                <td class="text-center">500</td>
-                                <td class="text-center">3</td>
-                                <td class="text-center">0.00</td>
-                                <td class="text-center">500.00</td>
-                            </tr>
+                            
                         </tbody>
                         <tfoot>
                             <tr>
@@ -156,21 +134,25 @@
                                 <td class="text-right">Subtotal</td>
                                 <td class="text-center">0.00</td>
                                 <td class="text-center">1500.00</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td colspan="4"></td>
                                 <td class="text-center font-weight-bold">Total PKR</td>
                                 <td class="text-center font-weight-bold">1500.00</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="border-0" colspan="4"></td>
                                 <td class="text-center font-weight-bold">Amount Paid</td>
                                 <td class="text-center font-weight-bold">0.00</td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="border-0" colspan="4"></td>
                                 <td class="text-center font-weight-bold">Balance Due</td>
                                 <td class="text-center font-weight-bold">1500.00</td>
+                                <td></td>
                             </tr>
                         </tfoot>
                     </table>
@@ -239,16 +221,26 @@
                 <tr>
                     <td class="">1</td>
                     <td width="50%" class="">`+$("#search").val()+`</td>
-                    <td class="text-center">`+$("#search").attr("data-price")+`</td>
+                    <td class="text-center unit-cost">`+$("#search").attr("data-price")+`</td>
                     <td class="text-center" contenteditable="true">1</td>
-                    <td class="text-center">0.00</td>
-                    <td class="text-center">500.00</td>
+                    <td class="text-center discount" contenteditable="true">0.00</td>
+                    <td class="text-center final-amount" contenteditable="true">200.00</td>
+                    <td class="text-center" contenteditable="true"><button title="delete" class="btn text-danger delete-item"><i class="fas fa-trash"></i></button></td>
                 </tr>
             `);
         } else {
             alert("Please add a product first");
         }
-        
+    });
+
+    $("tbody").on("click",".delete-item",function(){
+        $(this).closest("tr").remove();
+    });
+    
+    $("tbody").on("input",".discount",function(){
+        let unitCost = parseInt($(this).closest("tr").find(".unit-cost").text());
+        let discount = parseInt(0+$(this).text());
+        $(this).closest("tr").find(".final-amount").text(unitCost - discount);
     });
 
     
